@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f5f6f8" />
+  <title>ShopSense AI — Support Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="ui.css" />
+  <style>.model-chip{font:500 8px 'DM Mono',monospace;letter-spacing:.4px;color:#39886b;background:#eaf7f1;border-radius:10px;padding:5px 7px;white-space:nowrap}.inbox-label{display:flex;align-items:center;gap:9px}.inbox-label strong{font:700 11px Manrope,sans-serif}.inbox-label span{font-size:9px;color:#999fa8}.live-indicator{font-size:9px;color:#808791;display:flex;align-items:center;gap:6px}.live-indicator i{width:6px;height:6px;border-radius:50%;background:#41bd8a}.page-heading{padding-bottom:17px}.ticket-layout{min-height:530px}.metric-card{box-shadow:none}</style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="ShopSense home"><span class="brand-mark">S<span>✳</span></span><span class="brand-name">shopsense<span>AI</span></span></a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="nav-list" aria-label="Main navigation">
+        <button class="nav-item active"><span class="nav-icon">▦</span>Inbox <span class="nav-count">12</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="sidebar-divider"></div>
+        <div class="workspace-label">YOUR WORKSPACE</div>
+        <div class="profile"><div class="avatar">JL</div><div class="profile-text"><strong>Jordan Lee</strong><small>Support lead</small></div><span class="more">···</span></div>
+        <div class="environment"><span></span> Demo environment <b>LOCAL</b></div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar"><div class="breadcrumbs">Support <span>/</span> <strong>Inbox</strong></div><div class="top-actions"><span class="demo-chip"><i></i> DAY 30 DEMO</span><span class="model-chip" id="modelStatus">LOCAL MODE</span><button class="icon-button" title="Notifications">♧<i class="notification-dot"></i></button><div class="avatar small">JL</div></div></header>
+      <section class="page-heading"><div><div class="eyebrow">CUSTOMER SUPPORT</div><h1>Support inbox</h1><p>Review a ticket, see what the AI found, then choose the next step.</p></div><div class="heading-actions"><button class="button architecture-button" id="architectureLink">▤ <span>System architecture</span></button><button class="button button-primary new-ticket-button" id="newTicketBtn">＋ <span>New ticket</span></button></div></section>
+      <section class="model-notice" id="modelNotice" aria-live="polite"><span class="notice-icon">✳</span><div><strong id="modelNoticeTitle">Checking AI connection…</strong><p id="modelNoticeText">This demo may use GPT‑4o mini when a local API key is configured.</p></div><button id="retryModelBtn" hidden>Retry AI request</button></section>
+      <section class="inbox-panel">
+        <div class="inbox-toolbar"><div class="inbox-label"><strong>Recent tickets</strong><span id="ticketCount">4 conversations</span></div><div class="toolbar-actions"><span class="live-indicator"><i></i> Live analysis</span></div></div>
+        <div class="ticket-layout">
+          <div class="ticket-list" id="ticketList" aria-label="Tickets"></div>
+          <section class="ticket-detail" id="ticketDetail" aria-live="polite"></section>
+          <aside class="insights-panel" id="insightsPanel" aria-label="AI insights"></aside>
+        </div>
+      </section>
+      <footer class="app-footer"><span>ShopSense AI <b>•</b> Customer support intelligence</span><span>Local demo · Mock data</span></footer>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <section class="demo-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="closeModal" aria-label="Close">×</button>
+      <div class="eyebrow">DAY 30 · CLIENT READOUT</div><h2 id="modalTitle">Built to resolve with confidence.</h2>
+      <p class="modal-intro">ShopSense connects the full support loop: understand the customer, find the right policy, check the facts, and take the safest next step.</p>
+      <div class="architecture" aria-label="System architecture flow">
+        <div class="arch-node"><span>01</span><strong>Customer ticket</strong><small>Message + order ID</small></div><div class="arch-arrow">→</div>
+        <div class="arch-node"><span>02</span><strong>Triage</strong><small>Intent · urgency · tone</small></div><div class="arch-arrow">→</div>
+        <div class="arch-node"><span>03</span><strong>RAG vector search</strong><small>TF‑IDF policy index</small></div><div class="arch-arrow">→</div>
+        <div class="arch-node"><span>04</span><strong>Order + decision</strong><small>Resolve or escalate</small></div>
+      </div>
+      <div class="modal-bottom"><div><div class="eyebrow">THE DAY 30 STORY</div><p>We started with the top contact drivers, connected answers to approved policies, and put an explicit human handoff around exceptions. Today’s demo runs the whole path on a local mock dataset. Next: validate against live tickets, tune confidence thresholds with agents, and measure containment alongside CSAT.</p></div><div class="demo-stat"><strong>68%</strong><span>eligible tickets<br>resolved by AI</span></div></div>
+      <div class="modal-note"><span>✳</span> Every recommendation includes its source. High-risk cases stay in human hands.</div>
+    </section>
+  </div>
+  <div class="modal-backdrop" id="composeBackdrop" hidden>
+    <section class="compose-modal" role="dialog" aria-modal="true" aria-labelledby="composeTitle">
+      <button class="modal-close" id="composeClose" aria-label="Close">×</button>
+      <div class="eyebrow">SUPPORT WORKSPACE</div>
+      <h2 id="composeTitle">New customer ticket</h2>
+      <p id="composeHelp">Paste the customer’s message below. ShopSense will run the full pipeline.</p>
+      <textarea id="composeInput" rows="7" placeholder="Example: Where is my order ORD-48291? The tracking has not moved."></textarea>
+      <div class="compose-actions"><button class="button button-ghost" id="composeCancel">Cancel</button><button class="button button-primary" id="composeSave">Analyze ticket</button></div>
+    </section>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
