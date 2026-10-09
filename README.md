@@ -13,7 +13,7 @@ Run the local backend
 python3 server.py
 ```
 
-Then visit `http://127.0.0.1:8001`. The server prefers `GEMINI_API_KEY` from the ignored local `.env` file and uses Gemini Flash Latest for optional generation.
+Then visit `http://127.0.0.1:8000`. The server prefers `GEMINI_API_KEY` from the ignored local `.env` file and uses Gemini Flash Latest for optional generation.
 ## Walkthrough
 
 1. Select a ticket in the inbox.
